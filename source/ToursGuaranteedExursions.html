@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tour</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+        
+            height: 100%;
+            z-index: -1; 
+            object-fit: cover; 
+        }
+
+        .content {
+         
+            position: relative;
+            z-index: 1;
+          
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+          
+          
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .navbar-logo {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .navbar-link {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .navbar-link:hover {
+            text-decoration: underline;
+        }
+
+        .header {
+            font-family: Oswald ;
+            background-color: #333;
+            color: #ffff;
+            padding: 25px 0;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .nav-bar {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-bar:hover {
+            background-color: #dcdcdc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #city-text {
+            font-family: Oswald;
+            font-size: 24px;
+            margin: 0;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .content {
+            padding: 20px;
+            max-width: 800px;
+            margin: 50px auto 0;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        .footer {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+         
+        }
+
+        .footer-link {
+            color: #fff;
+            text-decoration: underline;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-link:hover {
+            color: #fff;
+        }
+
+        .footer-image {
+            max-width: 100px;
+            height: auto;
+            margin-top: 10px;
+        }
+        
+        .slide {
+            height: 230px;
+            position: center;
+            margin-left:190px ;
+
+        }
+        
+
+        .see-more-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 5px;
+        }
+
+        .button1 {
+            padding: 2px 8px;
+            background-color: #317bcb;
+            color: #fff;
+            text-decoration: navajowhite;
+            border: none;
+            border-radius: 1500px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .button1:hover {
+            background-color: #5994d4;
+            cursor: pointer;
+        }
+       
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 0) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            var navbarLinks = document.querySelectorAll('.navbar-link');
+            navbarLinks.forEach(function(link) {
+                link.addEventListener('mouseover', function() {
+                    link.style.color = '#007bff';
+                });
+                link.addEventListener('mouseout', function() {
+                    link.style.color = '#fff';
+                });
+            });
+
+   
+
+            function changeHeaderBackgroundColor() {
+                var header = document.querySelector('.header');
+                var colors = ['#007bff', '#dc3545', '#ffc107', '#28a745'];
+                var randomColor = colors[Math.floor(Math.random() * colors.length)];
+                header.style.backgroundColor = randomColor;
+            }
+
+        });
+
+  
+    </script>
+</head>
+<body>
+    <video autoplay loop muted>
+        <source src="C:/Users/ksama/Desktop/Group02_Tourist_Agency/images/video1.mp4" type="video/mp4" name = 'video'>
+     
+    </video>
+    <div class="navbar">
+        <a href="#" class="navbar-brand">
+            <img src="C:/Users/ksama/Desktop/Group02_Tourist_Agency/images/globe.jpg" alt="Travel-Agency" class="navbar-logo">
+            <span>Travel-Agency</span>
+        </a>
+        <div class="navbar-links">
+            <a href="#" class="navbar-link">Home</a>
+            <a href="#" class="navbar-link">Destination</a>
+            <a href="#" class="navbar-link">Tours</a>
+            <a href="#" class="navbar-link">Transportation</a>
+           
+            <a href="file:///C:/Users/ksama/Desktop/Group02_Tourist_Agency/source/ContactUs.html" class="navbar-link">Contact</a>
+        </div>
+    </div>
+
+    <div class="header" id="home">
+        <h1>Guaranteed Excursion from ...</h1>
+    </div>
+
+
+    <div class="content">
+        <div class="section" id="about">
+            <h2>Tirana</h2>
+            <p>...</p>
+       
+        </div>
+
+        <div class="section-wrapper">
+            <div class="section-card" id="places">
+                <h3>Kalaja</h3>
+                <img src="C:/Users/ksama/Desktop/Group02_Tourist_Agency/images/globe.jpg" alt="Service Image 1" class="slide">
+
+                <p></p>
+                <div class="button1">
+                    <div class="see-more-button">
+                        <a href="#" class="button1">See more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="section-card" id="activities">
+                <h3>....</h3>
+                <img src="C:/Users/ksama/Desktop/Group02_Tourist_Agency/images/globe.jpg" alt="Service Image 1" class="slide">
+                <p></p>
+                <div class="button1">
+                    <div class="see-more-button">
+                        <a href="#" class="button1">See more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="section-card" id="cuisine">
+                <h3>...</h3>
+                <img src="C:/Users/ksama/Desktop/Group02_Tourist_Agency/images/globe.jpg" alt="Service Image 1" class="slide">
+                <p></p>
+                <div class="button1">
+                    <div class="see-more-button">
+                        <a href="#" class="button1">See more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="section-card" id="exploration">
+                <h3>....</h3>
+                <img src="C:/Users/ksama/Desktop/Group02_Tourist_Agency/images/globe.jpg" alt="Service Image 1" class="slide">
+                <p></p>
+                <div class="button1">
+                    <div class="see-more-button">
+                        <a href="#" class="button1">See more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        
+
+</body>
+</html>

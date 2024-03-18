@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('C:/Users/ksama/Desktop/Group02_Tourist_Agency/images/globe.jpg'); 
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            margin-top: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .contact-details {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .contact-details p {
+            margin-bottom: 10px;
+        }
+
+        .error-message {
+            color: #dc3545;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .success-message {
+            color: #28a745;
+            margin-top: 5px;
+            display: none;
+        }
+        .mot {
+            color: gray;
+            margin-left: 30px;
+            animation: moveLeftRight 5s infinite;
+        }
+
+        @keyframes moveLeftRight {
+            0% { transform: translateY(10px); }
+            50% { transform: translateX(50px); }
+            100% { transform: translateZ(10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <form id="contactForm" action="#" method="post">
+            <div style="display: flex; flex-wrap: wrap;">
+                <div style="flex-basis: 48%;">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div style="flex-basis: 48%;">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" required>
+                </div>
+                <div style="flex-basis: 48%;">
+                    <label for="phone">Phone Number:</label>
+                    <input type="text" id="phone" name="phone" required>
+                </div>
+                <div style="flex-basis: 100%;">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div style="flex-basis: 100%;">
+                    <input type="submit" value="Submit">
+                    <p class="success-message"></p>
+                    <p class="error-message"></p>
+                </div>
+            </div>
+        </form>
+
+        <div class="contact-details">
+        <div class = "mot">
+            <p>You can also contact us here!!! </p>
+        </div>
+          
+            <p>Email: agencyContact@gmail.com</p>
+            <p>Phone Number: +355693225447</p>
+        </div>
+
+        <script>
+          
+            document.getElementById('contactForm').addEventListener('submit', function (event) {
+              
+                event.preventDefault();
+
+             
+                if (validateForm()) {
+               
+                    var name = document.getElementById('name').value;
+                    var email = document.getElementById('email').value;
+                    var phone = document.getElementById('phone').value;
+                    var message = document.getElementById('message').value;
+
+                    
+                    var formData = new FormData();
+                    formData.append('name', name);
+                    formData.append('email', email);
+                    formData.append('phone', phone);
+                    formData.append('message', message);
+
+                    setTimeout(function () {
+                        console.log('Form data:', formData);
+                  
+                        var successMessage = document.querySelector('.success-message');
+                        successMessage.textContent = 'Email sent successfully';
+                        successMessage.style.display = 'block';
+               
+                        document.getElementById('contactForm').reset();
+                    }, 1000);
+                }
+            });
+
+            function validateForm() {
+                var name = document.getElementById('name').value;
+                var email = document.getElementById('email').value;
+                var phone = document.getElementById('phone').value;
+                var message = document.getElementById('message').value;
+                var errorMessage = document.querySelector('.error-message');
+                var isValid = true;
+
+         
+                errorMessage.style.display = 'none';
+
+             
+                if (!name.trim()) {
+                    displayErrorMessage('Please enter your name');
+                    isValid = false;
+                }
+
+             
+                if (!email.trim() || !validateEmail(email)) {
+                    displayErrorMessage('Please enter a valid email address');
+                    isValid = false;
+                }
+
+                if (!phone.trim() || !validatePhoneNumber(phone)) {
+                    displayErrorMessage('Please enter a valid phone number');
+                    isValid = false;
+                }
+
+            
+                if (!message.trim()) {
+                    displayErrorMessage('Please enter a message');
+                    isValid = false;
+                }
+
+                return isValid;
+            }
+
+           
+            function displayErrorMessage(message) {
+                var errorMessage = document.querySelector('.error-message');
+                errorMessage.textContent = message;
+                errorMessage.style.display = 'block';
+            }
+
+           
+            function validateEmail(email) {
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+           
+            function validatePhoneNumber(phone) {
+                var phoneRegex = /^\+?\d{1,3}?[-.\s]?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
+                return phoneRegex.test(phone);
+            }
+        </script>
+    </div>
+</body>
+</html>
+

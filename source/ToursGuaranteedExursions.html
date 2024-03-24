@@ -10,17 +10,9 @@
             position: fixed;
             top: 0;
             left: 0;
-        
             height: 100%;
             z-index: -1; 
             object-fit: cover; 
-        }
-
-        .content {
-         
-            position: relative;
-            z-index: 1;
-          
         }
 
         body {
@@ -28,8 +20,6 @@
             padding: 0;
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
-          
-          
         }
 
         .navbar {
@@ -66,40 +56,13 @@
             font-weight: bold;
         }
 
-        .navbar-link:hover {
-            text-decoration: underline;
-        }
-
         .header {
-            font-family: Oswald ;
+            font-family: Oswald;
             background-color: #333;
-            color: #ffff;
+            color: #fff;
             padding: 25px 0;
             text-align: center;
             margin-top: 30px;
-        }
-
-        .nav-bar {
-            background-color: #f0f0f0;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-bar:hover {
-            background-color: #dcdcdc;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        #city-text {
-            font-family: Oswald;
-            font-size: 24px;
-            margin: 0;
-            font-weight: bold;
-            color: #333;
         }
 
         .content {
@@ -108,7 +71,7 @@
             margin: 50px auto 0;
             background-color: #fff;
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Increased spread radius and opacity */
         }
 
         .section {
@@ -120,47 +83,30 @@
             margin-bottom: 10px;
         }
 
-        .section p {
-            margin-top: 10px;
-            line-height: 1.5;
-        }
-
-        .footer {
-            background-color: #007bff;
-            color: #fff;
+        .section-card {
             padding: 20px;
-            text-align: center;
-         
+            border-bottom: 1px solid #ccc;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6); 
+            border-radius: 5px;
         }
 
-        .footer-link {
-            color: #fff;
-            text-decoration: underline;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        .section-card h3 {
+            margin-bottom: 10px;
+            color: #333;
         }
 
-        .footer-link:hover {
-            color: #fff;
+        .section-card img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6); 
         }
 
-        .footer-image {
-            max-width: 100px;
-            height: auto;
-            margin-top: 10px;
-        }
-        
-        .slide {
-            height: 230px;
-            position: center;
-            margin-left:190px ;
-
-        }
-        
-
-        .see-more-button {
-            display: flex;
-            justify-content: center;
-            margin-top: 5px;
+        .section-card p {
+            margin-bottom: 20px;
+            color: #555;
         }
 
         .button1 {
@@ -178,47 +124,32 @@
             background-color: #5994d4;
             cursor: pointer;
         }
-       
+        .stars {
+            display: inline-block;
+            unicode-bidi: bidi-override;
+            direction: rtl;
+            text-align: center;
+            cursor: pointer; 
+        }
+        
+        .star {
+            display: inline-block;
+            font-size: 20px;
+            color: #ffd700; 
+            transition: color 0.3s ease; 
+        }
+        
+        .star:hover,
+        .star:hover ~ .star {
+            color: #ffd700; 
+        }
+     
+
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var navbar = document.querySelector('.navbar');
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 0) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
-
-            var navbarLinks = document.querySelectorAll('.navbar-link');
-            navbarLinks.forEach(function(link) {
-                link.addEventListener('mouseover', function() {
-                    link.style.color = '#007bff';
-                });
-                link.addEventListener('mouseout', function() {
-                    link.style.color = '#fff';
-                });
-            });
-
-   
-
-            function changeHeaderBackgroundColor() {
-                var header = document.querySelector('.header');
-                var colors = ['#007bff', '#dc3545', '#ffc107', '#28a745'];
-                var randomColor = colors[Math.floor(Math.random() * colors.length)];
-                header.style.backgroundColor = randomColor;
-            }
-
-        });
-
-  
-    </script>
 </head>
 <body>
     <video autoplay loop muted>
-        <source src="C:/Users/ksama/Desktop/Group02_Tourist_Agency/images/video1.mp4" type="video/mp4" name = 'video'>
-     
+        <source src="C:/Users/ksama/Desktop/Group02_Tourist_Agency/images/video1.mp4" type="video/mp4" name='video'>
     </video>
     <div class="navbar">
         <a href="#" class="navbar-brand">
@@ -230,7 +161,6 @@
             <a href="#" class="navbar-link">Destination</a>
             <a href="#" class="navbar-link">Tours</a>
             <a href="#" class="navbar-link">Transportation</a>
-           
             <a href="file:///C:/Users/ksama/Desktop/Group02_Tourist_Agency/source/ContactUs.html" class="navbar-link">Contact</a>
         </div>
     </div>
@@ -239,61 +169,64 @@
         <h1>Guaranteed Excursion from ...</h1>
     </div>
 
-
     <div class="content">
-        <div class="section" id="about">
+        <div class="section" id="places">
             <h2>Tirana</h2>
-            <p>...</p>
-       
         </div>
 
-        <div class="section-wrapper">
-            <div class="section-card" id="places">
-                <h3>Kalaja</h3>
-                <img src="C:/Users/ksama/Desktop/Group02_Tourist_Agency/images/globe.jpg" alt="Service Image 1" class="slide">
-
-                <p></p>
-                <div class="button1">
-                    <div class="see-more-button">
-                        <a href="#" class="button1">See more</a>
+        <div class="section-card">
+            <h3>Kalaja</h3>
+            <img src="C:/Users/ksama/Desktop/Group02_Tourist_Agency/images/globe.jpg" alt="Service Image 1">
+            <p>jemi ne kala.... tirana.</p>
+            <div class="see-more-button">
+                <a href="#" class="button1">See More</a>
+            </div>
+           
+                <div class="review" data-service="Kalaja"> 
+                    <div class="stars" data-rating="4">
+                        <span class="star" data-value="1">&#9733;</span> 
+                        <span class="star" data-value="2">&#9733;</span>
+                        <span class="star" data-value="3">&#9733;</span>
+                        <span class="star" data-value="4">&#9733;</span>
+                        <span class="star" data-value="5">&#9734;</span>
                     </div>
+               
+            </div>
+        </div>
+        <div class="section-card">
+            <h3>Kalaja</h3>
+            <img src="C:/Users/ksama/Desktop/Group02_Tourist_Agency/images/globe.jpg" alt="Service Image 1">
+            <p>jemi ne kala.... tirana.</p>
+            <div class="see-more-button">
+                <a href="#" class="button1">See More</a>
+            </div>
+            <div class="review" data-service="Kalaja"> 
+                <div class="stars" data-rating="4">
+                    <span class="star" data-value="1">&#9733;</span> 
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9734;</span>
                 </div>
             </div>
-            <div class="section-card" id="activities">
-                <h3>....</h3>
-                <img src="C:/Users/ksama/Desktop/Group02_Tourist_Agency/images/globe.jpg" alt="Service Image 1" class="slide">
-                <p></p>
-                <div class="button1">
-                    <div class="see-more-button">
-                        <a href="#" class="button1">See more</a>
-                    </div>
-                </div>
+        </div>
+        <div class="section-card">
+            <h3>Kalaja</h3>
+            <img src="C:/Users/ksama/Desktop/Group02_Tourist_Agency/images/globe.jpg" alt="Service Image 1">
+            <p>jemi ne kala.... tirana.</p>
+            <div class="see-more-button">
+                <a href="#" class="button1">See More</a>
             </div>
-            <div class="section-card" id="cuisine">
-                <h3>...</h3>
-                <img src="C:/Users/ksama/Desktop/Group02_Tourist_Agency/images/globe.jpg" alt="Service Image 1" class="slide">
-                <p></p>
-                <div class="button1">
-                    <div class="see-more-button">
-                        <a href="#" class="button1">See more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="section-card" id="exploration">
-                <h3>....</h3>
-                <img src="C:/Users/ksama/Desktop/Group02_Tourist_Agency/images/globe.jpg" alt="Service Image 1" class="slide">
-                <p></p>
-                <div class="button1">
-                    <div class="see-more-button">
-                        <a href="#" class="button1">See more</a>
-                    </div>
+            <div class="review" data-service="Kalaja"> 
+                <div class="stars" data-rating="4">
+                    <span class="star" data-value="1">&#9733;</span> 
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9734;</span>
                 </div>
             </div>
         </div>
     </div>
-
-
-        
-
 </body>
 </html>
